@@ -1,0 +1,38 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	width: 100%;
+	height: 42px;
+
+}
+
+.logo{
+	margin-top: 50px;
+	margin-left: 40px;
+	
+}
+
+.Titulo p{
+	text-align: center;
+	font-family: "Colibri";
+	color:#A52A2A;
+	padding: 18px;
+	font-style: italic;
+	font-size: 20px;
+
+		border-bottom-size: 1px;
+        border-bottom-style: double;
+        border-bottom-color: #000;
+
+}
+
+.texto p {
+	text-align: center;
+	font-style: italic;
+	font-family: "Colibri";
+
+	margin-top: 20px;
+}

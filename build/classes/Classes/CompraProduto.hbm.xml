@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/03/2015 20:03:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Classes.CompraProduto" table="compraProduto" catalog="livraria" optimistic-lock="version">
+        <id name="codCompra" type="int">
+            <column name="codCompra" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fornecedor" class="Classes.Fornecedor" fetch="select">
+            <column name="fornecedor_cnpjFornecedor" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="Classes.Funcionario" fetch="select">
+            <column name="funcionario_cpfFuncionario" length="14" not-null="true" />
+        </many-to-one>
+        <many-to-one name="livro" class="Classes.Livro" fetch="select">
+            <column name="livro_codLivro" length="5" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

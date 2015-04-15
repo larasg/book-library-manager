@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/03/2015 20:03:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Classes.Fornecedor" table="fornecedor" catalog="livraria" optimistic-lock="version">
+        <id name="cnpjFornecedor" type="string">
+            <column name="cnpjFornecedor" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeFornecedor" type="string">
+            <column name="nomeFornecedor" length="40" not-null="true" />
+        </property>
+        <property name="telefoneFornecedor" type="string">
+            <column name="telefoneFornecedor" length="14" />
+        </property>
+        <property name="celulaFornecedor" type="string">
+            <column name="celulaFornecedor" length="14" />
+        </property>
+        <property name="ruaFornecedor" type="string">
+            <column name="ruaFornecedor" length="45" not-null="true" />
+        </property>
+        <property name="numerFornecedor" type="string">
+            <column name="numerFornecedor" length="6" not-null="true" />
+        </property>
+        <property name="estadoFornecedor" type="string">
+            <column name="estadoFornecedor" length="2" not-null="true" />
+        </property>
+        <property name="complementoFornecedor" type="string">
+            <column name="complementoFornecedor" length="200" not-null="true" />
+        </property>
+        <property name="cepFornecedor" type="string">
+            <column name="cepFornecedor" length="10" not-null="true" />
+        </property>
+        <property name="emailFornecedor" type="string">
+            <column name="emailFornecedor" length="45" />
+        </property>
+        <property name="bairroFornecedor" type="string">
+            <column name="bairroFornecedor" length="30" not-null="true" />
+        </property>
+        <property name="cidadeFornecedor" type="string">
+            <column name="cidadeFornecedor" length="30" not-null="true" />
+        </property>
+        <set name="compraProdutos" table="compraProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fornecedor_cnpjFornecedor" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Classes.CompraProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

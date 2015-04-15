@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/03/2015 20:03:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Classes.Livro" table="livro" catalog="livraria" optimistic-lock="version">
+        <id name="codLivro" type="string">
+            <column name="codLivro" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeLivro" type="string">
+            <column name="nomeLivro" length="30" not-null="true" />
+        </property>
+        <property name="autorLivro" type="string">
+            <column name="autorLivro" length="30" not-null="true" />
+        </property>
+        <property name="categoriaLivro" type="string">
+            <column name="categoriaLivro" length="20" not-null="true" />
+        </property>
+        <property name="descricaoLivro" type="string">
+            <column name="descricaoLivro" length="200" not-null="true" />
+        </property>
+        <set name="compraProdutos" table="compraProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="livro_codLivro" length="5" not-null="true" />
+            </key>
+            <one-to-many class="Classes.CompraProduto" />
+        </set>
+        <set name="vendaProdutos" table="vendaProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="livro_codLivro" length="5" not-null="true" />
+            </key>
+            <one-to-many class="Classes.VendaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

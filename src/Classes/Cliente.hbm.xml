@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/03/2015 20:03:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Classes.Cliente" table="cliente" catalog="livraria" optimistic-lock="version">
+        <id name="cpfCliente" type="string">
+            <column name="cpfCliente" length="14" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeCliente" type="string">
+            <column name="nomeCliente" length="40" not-null="true" />
+        </property>
+        <property name="telefoneCliente" type="string">
+            <column name="telefoneCliente" length="14" />
+        </property>
+        <property name="celularCliente" type="string">
+            <column name="celularCliente" length="14" />
+        </property>
+        <property name="ruaCliente" type="string">
+            <column name="ruaCliente" length="45" not-null="true" />
+        </property>
+        <property name="numeroCasaCliente" type="string">
+            <column name="numeroCasaCliente" length="6" not-null="true" />
+        </property>
+        <property name="estadoCliente" type="string">
+            <column name="estadoCliente" length="2" not-null="true" />
+        </property>
+        <property name="complementoCliente" type="string">
+            <column name="complementoCliente" length="200" not-null="true" />
+        </property>
+        <property name="cepCliente" type="string">
+            <column name="cepCliente" length="10" not-null="true" />
+        </property>
+        <property name="emailCliente" type="string">
+            <column name="emailCliente" length="45" />
+        </property>
+        <property name="bairroCliente" type="string">
+            <column name="bairroCliente" length="30" not-null="true" />
+        </property>
+        <property name="cidadeCliente" type="string">
+            <column name="cidadeCliente" length="30" not-null="true" />
+        </property>
+        <set name="vendaProdutos" table="vendaProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cliente_cpfCliente" length="14" not-null="true" />
+            </key>
+            <one-to-many class="Classes.VendaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

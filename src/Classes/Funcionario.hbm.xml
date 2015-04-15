@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/03/2015 20:03:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Classes.Funcionario" table="funcionario" catalog="livraria" optimistic-lock="version">
+        <id name="cpfFuncionario" type="string">
+            <column name="cpfFuncionario" length="14" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeFuncionario" type="string">
+            <column name="nomeFuncionario" length="40" not-null="true" />
+        </property>
+        <property name="telefoneFuncionario" type="string">
+            <column name="telefoneFuncionario" length="14" />
+        </property>
+        <property name="celularFuncoionario" type="string">
+            <column name="celularFuncoionario" length="14" />
+        </property>
+        <property name="ruaFuncionario" type="string">
+            <column name="ruaFuncionario" length="45" not-null="true" />
+        </property>
+        <property name="numeroCasaFuncionario" type="string">
+            <column name="numeroCasaFuncionario" length="6" not-null="true" />
+        </property>
+        <property name="estadoFuncionario" type="string">
+            <column name="estadoFuncionario" length="2" not-null="true" />
+        </property>
+        <property name="complementoFuncionario" type="string">
+            <column name="complementoFuncionario" length="200" not-null="true" />
+        </property>
+        <property name="cepFuncionario" type="string">
+            <column name="cepFuncionario" length="10" not-null="true" />
+        </property>
+        <property name="emailFuncionario" type="string">
+            <column name="emailFuncionario" length="45" />
+        </property>
+        <property name="bairroFuncionario" type="string">
+            <column name="bairroFuncionario" length="30" not-null="true" />
+        </property>
+        <property name="cidadeFuncionario" type="string">
+            <column name="cidadeFuncionario" length="30" not-null="true" />
+        </property>
+        <property name="codFuncionario" type="string">
+            <column name="codFuncionario" length="5" />
+        </property>
+        <set name="compraProdutos" table="compraProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_cpfFuncionario" length="14" not-null="true" />
+            </key>
+            <one-to-many class="Classes.CompraProduto" />
+        </set>
+        <set name="vendaProdutos" table="vendaProduto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_cpfFuncionario" length="14" not-null="true" />
+            </key>
+            <one-to-many class="Classes.VendaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>
